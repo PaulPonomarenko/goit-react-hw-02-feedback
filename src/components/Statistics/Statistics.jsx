@@ -4,19 +4,12 @@ export const Statistics = ({
   neutral,
   onLeaveFeedback,
   options,
+  total,
+  positive,
 }) => {
   return (
     <div>
       <h2>Please leave feedback</h2>
-      {/* <button type="button" onClick={onLeaveFeedback}>
-        Good
-      </button>
-      <button type="button" onClick={onLeaveFeedback}>
-        Neutral
-      </button>
-      <button type="button" onClick={onLeaveFeedback}>
-        Bad
-      </button> */}
       <ul>
         {options.map(option => {
           return (
@@ -38,6 +31,12 @@ export const Statistics = ({
         </li>
         <li>
           <p>Bad:{bad}</p>
+        </li>
+        <li>
+          <p>Total:{total}</p>
+        </li>
+        <li>
+          <p>Positive feedback:{positive}%</p>
         </li>
       </ul>
     </div>

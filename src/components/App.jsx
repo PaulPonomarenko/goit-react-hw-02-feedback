@@ -15,10 +15,22 @@ export class App extends React.Component {
       return { [option]: prevState[option] + 1 };
     });
   };
+  countTotalFeedback() {
+    const values = Object.values(this.state);
+    return values.reduce((total, value) => total + value, 0);
+  }
+  // countPositiveFeedbackPercentage = () => {
+  //   return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  // };
+  countPositiveFeedbackPercentage = (good, total) => {
+    return Math.round((good / total) * 100);
+  };
 
   render() {
     const { good, neutral, bad } = this.state;
     const options = Object.keys(this.state);
+    const total = this.countTotalFeedback();
+    const positiveFeedback = this.countPositiveFeedbackPercentage(good, total);
     return (
       <>
         <Statistics
@@ -27,6 +39,8 @@ export class App extends React.Component {
           bad={bad}
           onLeaveFeedback={this.onLeaveFeedback}
           options={options}
+          total={total}
+          positive={positiveFeedback}
         />
       </>
     );
