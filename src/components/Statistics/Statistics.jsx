@@ -1,27 +1,6 @@
-export const Statistics = ({
-  good,
-  bad,
-  neutral,
-  onLeaveFeedback,
-  options,
-  total,
-  positive,
-}) => {
+export const Statistics = ({ good, bad, neutral, total, positive }) => {
   return (
     <div>
-      <h2>Please leave feedback</h2>
-      <ul>
-        {options.map(option => {
-          return (
-            <li key={option}>
-              <button type="button" onClick={() => onLeaveFeedback(option)}>
-                {option}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-      <h2>Statistics</h2>
       <ul>
         <li>
           <p>Good:{good}</p>

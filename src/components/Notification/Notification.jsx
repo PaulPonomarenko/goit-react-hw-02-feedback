@@ -1,1 +1,3 @@
-export const FeedbackOptions = () => {};
+export const Notification = ({ message }) => {
+  return <h2>{message}</h2>;
+};
